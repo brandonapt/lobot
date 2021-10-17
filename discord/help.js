@@ -1,0 +1,44 @@
+const Discord = require('discord.js');
+const path = require('path');
+const _ = require('lodash');
+require('dotenv').config();
+
+const config = {
+    description: 'Shows a list of commands.',
+    aliases: [],
+    usage: '[command name]',
+    category: 'Info'
+}
+
+module.exports = {
+    config,
+    run: async (client, message, args, bot) => {
+        let embed = new Discord.MessageEmbed();
+
+        let commandQuery = args[0];
+        if(commandQuery) {
+            let command = client.commandlist.find(c => c.name.toLowerCase() === commandQuery.toLowerCase() || c.config.aliases.map(a => a.toLowerCase()).includes(commandQuery.toLowerCase()));
+            if(command) {
+                embed.setTitle(`${command.name} - Command Info`);
+                embed.setDescription(command.config.description);
+                if(command.config.aliases.length !== 0) embed.addField('Aliases', command.config.aliases.join(', '), true);
+                embed.addField('Usage', `\`!${command.name}${command.config.usage ? ` ${command.config.usage}` : ''}\``, true);
+                embed.addField('Category', command.config.category, true);
+                embed.setColor("ORANGE");
+                embed.setAuthor(message.author.tag, message.author.displayAvatarURL());
+                return message.channel.send(embed);
+            }
+        }
+
+        let categories = _.groupBy(client.commandlist, c => c.config.category);
+        for (const categoryName of Object.keys(categories)) {
+            let category = categories[categoryName];
+            let commandString = category.map(c => `\`!${c.name}${c.config.usage ? ` ${c.config.usage}` : ''}\` - ${c.config.description}`).join('\n');
+            embed.addField(`${categoryName}`, `${commandString}`);
+        }
+        embed.setDescription('Here is a list of the bot commands:');
+        embed.setColor("ORANGE");
+        embed.setAuthor(message.author.tag, message.author.displayAvatarURL());
+        return message.channel.send(embed);
+    }
+}
