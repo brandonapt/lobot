@@ -4,10 +4,10 @@ lobot is a discord-bot styled command handler for minecraft.
 
 how to run:
 
-required:
-nodejs
-java
-minecraft: java edition client
+required:  
+nodejs  
+java  
+minecraft: java edition client  
 
 step 1: download minecraft server software from [here](https://www.minecraft.net/en-us/download/server) and start a server on localhost (MAKE SURE TO TURN ONLINE_MODE TO FALSE IN SERVER.PROPERTIES)
 
