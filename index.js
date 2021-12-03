@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 const mineflayer = require('mineflayer')
 const { mineflayer: mineflayerViewer } = require('prismarine-viewer')
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
