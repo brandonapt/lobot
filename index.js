@@ -4,8 +4,6 @@ const { mineflayer: mineflayerViewer } = require('prismarine-viewer')
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
 const pvp = require('mineflayer-pvp').plugin
 const fs = require('fs');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
 const Discord = require('discord.js')
 const client = new Discord.Client({
   allowedMentions: { parse: [] },
@@ -15,7 +13,7 @@ const client = new Discord.Client({
       Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS
   ]
 });
-let channel = `${process.env.messageChannel}`
+let channel = '898982218133811290'
 const commandlist = []
 const token = process.env.token
 const prefix = "!"
@@ -84,7 +82,6 @@ bot.on('chat', (username, message) => {
   // Ignore messages from the bot itself
   if (username === bot.username) return
 
-  channel.send(`${username}: ${message}`)
 })
 
 bot.once('spawn', () => {
@@ -139,4 +136,4 @@ client.on('message', async (message) => {
 bot.on('kicked', console.log)
 bot.on('error', console.log)
 
-client.login(token)
+client.login("Nzk1Mzc3NzM4NTYyNTM1NDY0.X_IfPg.43DvSnaw3YCJ1Ru8v5yyJ6k5k8I")

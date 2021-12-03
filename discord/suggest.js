@@ -14,7 +14,7 @@ module.exports = {
   
   run: async (client, message, args, bot) => {
    
-  let channel = `${process.env.suggestionChannel}`
+  let channel = '899052889148911616'
     if (channel === null) return;
   
   const suggestionQuery = args.join(" ");
