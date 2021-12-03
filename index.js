@@ -136,4 +136,4 @@ client.on('message', async (message) => {
 bot.on('kicked', console.log)
 bot.on('error', console.log)
 
-client.login("Nzk1Mzc3NzM4NTYyNTM1NDY0.X_IfPg.43DvSnaw3YCJ1Ru8v5yyJ6k5k8I")
+client.login(process.env.token)
