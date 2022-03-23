@@ -1,7 +1,7 @@
 # lobot - a discord-bot styled command bot for minecraft
 
 lobot is a discord-bot styled command handler for minecraft.
-
+Join our discord! We'd love to have you! https://discord.gg/beC2cddaFq
 how to run:
 
 required:  
